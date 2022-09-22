@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewsort" content="width=device-width, initial-scale=1.0"
+    <script src="https://kit.fontawesome.com/1147679ae7.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <script type="text/javascript" src="js/login.js"></script>
+    <link rel="stylesheet" type="text/css" href="login.css"> 
+
+    <title>Login</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script> 
+		var account = '{"nhanvien":[{"email":"DNam@gmail.com", "password":"Abc@1234"}]}';
+		
+		obj = JSON.parse(account); 
+		
+		function frmValidate(){
+			var frm = document.forms['login'];
+            var mail = frm.mail;
+			var pwd = frm.pwd;
+	
+ 				if((mail.value == obj.nhanvien[0].email) && (pwd.value == obj.nhanvien[0].password) ){
+				alert("Đăng nhập thành công!")
+                $('.form').attr('action', 'quantri.html');
+                }else {
+					alert("Tên đăng nhập hoặc mật khẩu sai!")
+                }
+			
+
+		}
+	</script> 
+</head>
+<body>
+    <div class="background">
+        <form class="form" method="post" enctype="multipart/form-data" autocomplete="off" name="login" onsubmit="return  frmValidate()">
+           
+            <div class="signin">
+                <div class="form-group"> 
+                    <h2>Đăng nhập</h2>
+                    <table>
+                        <tr>
+                            <th><label for="email"><i class="fas fa-envelope icon"></i></label></th>
+                            <td><input type="text" placeholder="Vui lòng nhập email" name="mail" id="mail" required ></td>
+                        </tr>
+                        <tr>
+                            <th><label for="password"><i class="fas fa-key icon"></i></label></th>
+                            <td><input  type="password"  placeholder="Vui lòng nhập mật khẩu" name="pwd" id="pwd" pattern=".{4,}" title="Nhập lớn hơn hoặc bằng 4 kí tự" required></td>
+                        </tr> 
+                        <tr>
+                            <td colspan="2"  >
+                                <button type="submit" class="btn">Đăng nhập</button>
+                                <button type="reset" class="btn">Huỷ</button>
+                            </td>
+                        </tr>
+                            
+                    </table>
+                </div>
+                
+                <div class="forget-password">
+                    <div class="checkbox">
+                        <input type="checkbox" id="checkbox">
+                        <label for="checkbox">Ghi nhớ tôi</label>
+                    </div>
+                    <a href="">Quên mật khẩu?</a>
+                </div>
+                <div class="tk_exist">
+                    Bạn chưa có tài khoản? <a href="dky.html" id="dangky" >Đăng ký</a>
+                </div>
+            </div>
+            <div class="return"><button><a href="vtnn.html">Trở về</a></div></button>
+           
+        </form>
+
+    </div>
+
+    
